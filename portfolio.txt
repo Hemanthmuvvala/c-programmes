@@ -1,0 +1,76 @@
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { FaGithub, FaLinkedin, FaLeetcode } from "react-icons/fa";
+import { motion } from "framer-motion";
+
+const Portfolio = () => {
+  const [theme, setTheme] = useState("blue");
+  const themes = ["blue", "green", "purple", "orange"];
+
+  const links = {
+    About: "#about",
+    Projects: "#projects",
+    Resume: "/resume.pdf",
+    Skills: "#skills",
+    Contact: "#contact",
+    LinkedIn: "https://linkedin.com/in/hemanth",
+    GitHub: "https://github.com/Hemanth",
+    LeetCode: "https://leetcode.com/Hemanth"
+  };
+
+  return (
+    <div className={`min-h-screen bg-gradient-to-r from-${theme}-500 to-pink-400 p-5`}> 
+      <div className="flex justify-center gap-10">
+        {/* Experience Section */}
+        <Card className="p-4 w-1/3 bg-white bg-opacity-50 rounded-2xl shadow-lg">
+          <h2 className="text-xl font-bold mb-3">Experience</h2>
+          <ul className="space-y-3">
+            <li><strong>Google</strong> - Android Developer Intern (Jul-Sep 2024)</li>
+            <li><strong>Smart India Hackathon</strong> - Finalist, Waste Management AI</li>
+          </ul>
+        </Card>
+        
+        {/* Mobile App UI */}
+        <Card className="p-6 w-1/3 bg-gray-900 text-white rounded-2xl shadow-lg relative">
+          <h2 className="text-center text-lg font-bold">Hemanth's Portfolio</h2>
+          <div className="grid grid-cols-3 gap-4 mt-5">
+            {[
+              { name: "About", icon: "ℹ️" },
+              { name: "Projects", icon: "🛠️" },
+              { name: "Resume", icon: "📄" },
+              { name: "Skills", icon: "🎯" },
+              { name: "Contact", icon: "✉️" },
+              { name: "LinkedIn", icon: <FaLinkedin /> },
+              { name: "GitHub", icon: <FaGithub /> },
+              { name: "LeetCode", icon: <FaLeetcode /> }
+            ].map((app, index) => (
+              <a key={index} href={links[app.name]} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center cursor-pointer">
+                <div className="bg-white p-3 rounded-xl text-gray-900 shadow-md hover:bg-gray-200 transition duration-300">{app.icon}</div>
+                <p className="text-sm mt-1">{app.name}</p>
+              </a>
+            ))}
+          </div>
+        </Card>
+        
+        {/* About Section */}
+        <Card className="p-4 w-1/3 bg-white bg-opacity-50 rounded-2xl shadow-lg" id="about">
+          <h2 className="text-xl font-bold mb-3">Hey, I'm Hemanth!</h2>
+          <p className="text-md">I'm a <strong>Full-Stack Developer</strong> passionate about AI, Flutter, and Web Dev.</p>
+          <p className="text-md mt-2">I love building interactive web applications and solving challenging problems with code.</p>
+          <div className="flex space-x-2 mt-4">
+            {themes.map((color) => (
+              <button
+                key={color}
+                className={`w-6 h-6 rounded-full bg-${color}-500 border-2 border-white`}
+                onClick={() => setTheme(color)}
+              ></button>
+            ))}
+          </div>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default Portfolio;
