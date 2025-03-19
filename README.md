@@ -1,2 +1,2 @@
 # c-programmes
-small c programmes in c language
+small c programmes 
