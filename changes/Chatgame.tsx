@@ -9,6 +9,7 @@ export const ChatInterface = () => {
     { text: "Hi! I'm your AI financial assistant. How can I help you today?", isAI: true },
   ]);
   const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -20,15 +21,16 @@ export const ChatInterface = () => {
   }, [messages]);
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || loading) return;
 
     const userMessage = input.trim();
     setInput("");
     setMessages((prev) => [...prev, { text: userMessage, isAI: false }]);
+    setLoading(true);
 
     try {
-      const API_KEY = "AIzaSyCIOYPJqlI942dZH6j-ZYg5P8R_zF9pZsM"; 
-      const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
+      const API_KEY = "AIzaSyAtPKC3kpxBQqmy3B3PhiY-FqZ--YWbF0k"; // Replace with your actual API key
+      const API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
 
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
@@ -39,19 +41,19 @@ export const ChatInterface = () => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to fetch AI response");
+        throw new Error(`Failed to fetch AI response: ${response.statusText}`);
       }
 
       const data = await response.json();
+
       const aiReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm not sure how to respond to that.";
 
       setMessages((prev) => [...prev, { text: aiReply, isAI: true }]);
     } catch (error) {
       console.error("Error fetching AI response:", error);
-      setMessages((prev) => [
-        ...prev,
-        { text: "Oops! Something went wrong. Please try again.", isAI: true },
-      ]);
+      setMessages((prev) => [...prev, { text: "Oops! Something went wrong. Please try again.", isAI: true }]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,8 +80,9 @@ export const ChatInterface = () => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
             className="flex-1"
+            disabled={loading}
           />
-          <Button onClick={handleSend} size="icon">
+          <Button onClick={handleSend} size="icon" disabled={loading}>
             <Send className="h-4 w-4" />
           </Button>
         </div>
