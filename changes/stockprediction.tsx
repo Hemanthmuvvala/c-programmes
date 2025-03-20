@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/select";
 
 // Your API URL
-const API_URL = "http://localhost:8000"; // Change to your actual API URL
+const API_URL = ""; // Change to your actual API URL
 
 export const StockInvestmentData = () => {
   const { toast } = useToast();
