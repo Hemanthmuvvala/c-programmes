@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ChatMessage } from "./ChatMessage";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
 
 export const ChatInterface = () => {
   const [messages, setMessages] = useState<Array<{ text: string; isAI: boolean }>>([
@@ -46,7 +46,12 @@ export const ChatInterface = () => {
 
       const data = await response.json();
 
-      const aiReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm not sure how to respond to that.";
+      let aiReply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "I'm not sure how to respond to that.";
+
+      //Limit the AI response to a maximum of 6 lines
+      const lines = aiReply.split('\n');
+      aiReply = lines.slice(0, 6).join('\n');
+
 
       setMessages((prev) => [...prev, { text: aiReply, isAI: true }]);
     } catch (error) {
@@ -70,6 +75,7 @@ export const ChatInterface = () => {
         {messages.map((message, index) => (
           <ChatMessage key={index} message={message.text} isAI={message.isAI} />
         ))}
+        {loading && <ChatMessage message="Thinking..." isAI={true} />}
         <div ref={messagesEndRef} />
       </div>
       <div className="border-t p-4">
@@ -83,7 +89,7 @@ export const ChatInterface = () => {
             disabled={loading}
           />
           <Button onClick={handleSend} size="icon" disabled={loading}>
-            <Send className="h-4 w-4" />
+            {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
           </Button>
         </div>
       </div>
