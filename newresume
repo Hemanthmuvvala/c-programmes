@@ -1,0 +1,206 @@
+\documentclass[letterpaper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins - 0.5in is standard and balanced
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - Increased spacing from -8pt to -2pt to fill page
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}} % Relaxed line spacing
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Hemanth Muvvala} \\ \vspace{6pt}
+    \small +91 9966323291 $|$ \href{mailto:hemanth.m2111@gmail.com}{\underline{hemanth.m2111@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/hemanthmuvvala}{\underline{linkedin}} $|$
+    \href{https://github.com/Hemanthmuvvala}{\underline{github.com/Hemanthmuvvala}} $|$
+    \href{https://leetcode.com/HemanthMuvvala}{\underline{leetcode.com/HemanthMuvvala}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vishnu Institute of Technology}{Bhimavaram, India}
+      {Bachelor of Technology in Computer Science \& Engineering; CGPA: 9.25/10}{2023 -- 2027}
+      \resumeItemListStart
+        \resumeItem{\textbf{Coursework}: Data Structures \& Algorithms, Operating Systems, OOP, DBMS, Computer Networks.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Gamers Tag}{Remote}
+      {Junior Flutter Developer}{March 2025 -- June 2025}
+      \resumeItemListStart
+        \resumeItem{Engineered high-performance mobile UI components, redesigning layouts to increase in-app task completion by \textbf{35\%}.}
+        \resumeItem{Architected scalable state management solutions, reducing screen rebuilds and cutting build time by \textbf{25\%}.}
+        \resumeItem{ Accelerated rendering pipeline and asset loading strategies, achieving a \textbf{20\% reduction} in perceived load time.}
+        \resumeItem{Collaborated with backend teams to integrate RESTful APIs, ensuring seamless data synchronization and error handling.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {AICTE - Google Virtual Internship}{Virtual}
+      {Android Developer Intern}{July 2024 -- September 2024}
+      \resumeItemListStart
+        \resumeItem{Developed 3 distinct Android applications using Kotlin and XML, implementing MVVM architecture for separation of concerns.}
+        \resumeItem{Streamlined Firebase Cloud Firestore reads/writes and implemented local caching, improving data fetch latency by \textbf{10\%}.}
+        \resumeItem{Resolved \textbf{15+ critical defects} related to memory leaks and UI responsiveness through comprehensive testing.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeProjectHeading
+      {\textbf{Kochi Metro Document System (DocHub)} $|$ \emph{Flutter, Firebase, BART/mBART}}
+      {\href{https://github.com/Hemanthmuvvala/KMRL_Metro_DataBase}{\underline{GitHub}}}
+      \resumeItemListStart
+        \resumeItem{Developed an AI-powered app to automate management of \textbf{1,000+ documents} daily, reducing manual processing time by \textbf{70\%}.}
+        \resumeItem{Deployed fine-tuned BART-mBART models on \textbf{Hugging Face} to achieve \textbf{95\% document length reduction} via summarization.}
+        \resumeItem{Cut critical information latency from hours to \textbf{under 5 minutes} with a priority-based alert system for safety bulletins.}
+        \resumeItem{Enabled \textbf{50\% faster coordination} by routing actionable summaries to role-based dashboards for Every Department.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Finlit AI Assistant} $|$ \emph{React.js, Node.js, Express, Firebase, ML}}
+      {\href{https://github.com/Hemanthmuvvala/financial-wisdom-grove}{\underline{GitHub}}}
+      \resumeItemListStart
+        \resumeItem{Built a full-stack platform for AI-driven financial insights, achieving \textbf{70\% accuracy} in stock market predictions.}
+        \resumeItem{Implemented secure authentication and database rules using Firebase, ensuring data integrity for simulated users.}
+        \resumeItem{Designed real-time data visualization dashboards using React.js to display complex financial metrics clearly.}
+      \resumeItemListEnd
+      
+    \resumeProjectHeading
+      {\textbf{Quantum Visualizer} $|$ \emph{Flutter, FastAPI, Python}}
+      {\href{https://github.com/Hemanthmuvvala/Qubit_Visualizer}{\underline{GitHub}}}
+      \resumeItemListStart
+        \resumeItem{Created an interactive educational tool featuring 3D Bloch sphere visualizations to demystify quantum computing concepts.}
+        \resumeItem{Engineered a backend using FastAPI to process reduced density matrix calculations, reducing learning complexity by \textbf{40\%}.}
+        \resumeItem{Optimized 3D rendering performance in Flutter to ensure smooth animations at 60 FPS on mid-range devices.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Java, C++, Python, Dart, SQL} \\
+     \textbf{Frameworks/Libraries}{: Flutter, React.js, Node.js, Express.js, OpenCV, YOLO, FastAPI} \\
+     \textbf{Developer Tools}{: Git, GitHub, VS Code, Android Studio, Postman} \\
+     \textbf{Databases}{: MySQL, MongoDB, Firebase} \\
+     \textbf{Core Concepts}{: Data Structures \& Algorithms (DSA), OOP, DBMS, OS}
+    }}
+ \end{itemize}
+
+
+%-----------ACHIEVEMENTS-----------
+\section{Achievements}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{2nd Prize}: Smart India Hackathon 2025 (Internal Hackathon) - Recognized for innovative logistics solutions.
+    }}
+    \small{\item{
+     \textbf{Top 5 Winner}: AQVH Hackathon organized by AP Government (Selected among statewide participants).
+    }}
+    \small{\item{
+     \textbf{3rd Prize}: Google Developers Group (GDG) Hackathon, competing against \textbf{120+ teams}.
+    }}
+    \small{\item{
+     \textbf{Elite Certification}: NPTEL "Privacy and Security in Online Social Media" (Top 2\% Nationwide, Score: 83\%).
+    }}
+    
+ \end{itemize}
+
+
+\end{document}
